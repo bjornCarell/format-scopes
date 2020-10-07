@@ -1,0 +1,32 @@
+{
+  "name": "manipulate-json",
+  "version": "1.0.0",
+  "description": "manipulate JSON object data",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "stop": "webpack-dev-server --close",
+    "test": "jest"
+  },
+  "author": "Björn Carell",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.10.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-immutable": "^1.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.4.2",
+    "node-forge": "^0.10.0",
+    "selfsigned": "^1.10.8",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "css-loader": "^4.3.0"
+  }
+}

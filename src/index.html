@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Manipulate JSON</title>
+</head>
+<body>
+    <div id="app">
+        <div class="form-content">
+            <div class="paragraphs">
+                <p>This form will remove qoutes, spaces and line-breaks.
+                    One usecase is when adding scopes to Rundeck, copied from the API model.</p>
+            </div>
+            <form id="form">
+            <label class="label">Paste JSON:</label>
+              <textarea rows="20" id="input" class="textarea"></textarea>
+              <div class="form-actions">
+                <input id="submit" class="block button standard" type="button" value="Submit">
+                <input id="clear" class="block button clear" type="button" value="Clear">
+              </div>
+            </form>
+        </div>
+        <div class="output-content">
+            <div id="output" class="">Output will display here</div>
+             <button id="copy" class="button standard">Copy</button>
+        </div>
+        <div class="rundeck-link button clear">
+            <a 
+            href="https://back-office.oxford-production.tink.network" 
+            target="_blank">
+            Rundeck
+            </a>
+        </div>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+</html>

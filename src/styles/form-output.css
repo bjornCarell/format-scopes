@@ -1,0 +1,13 @@
+@import './animations.css';
+
+#output {
+    background-color: var(--bright-text);
+    border: 1px dotted var(--lighter-color);
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    margin: var(--xxl-space) var(--s-space);
+    min-width: 35rem;
+    padding: var(--m-space) var(--s-space);
+    text-align: center;
+    z-index: 999;
+}
