@@ -1,5 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
+
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
@@ -21,43 +23,19 @@ module.exports = (env) => {
     module: {
       rules: [{
         test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-
+        exclude: /(node_modules | bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env']
           }
         },
-
-      }, {
-      test: /\.css$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            importLoaders: 1,
-            modules: true
-          }
-        }
-      ],
-      include: /\.module\.css$/
-    },
-    {
-      test: /\.css$/,
-      use: [
-        'style-loader',
-        'css-loader'
-      ],
-      exclude: /\.module\.css$/
-    }
-      ]
+      }],
     },
     plugins: [ new MiniCssExtractPlugin() ],
     devtool: inProduction ? 'source-map' : 'inline-source-map',
     devServer: {
-      contentBase: path.join(__dirname, 'public'),
+      contentBase: path.join(__dirname, 'public', 'dist'),
       historyApiFallback: true,
       publicPath: '/dist'
     },
