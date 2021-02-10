@@ -23,16 +23,34 @@ module.exports = (env) => {
     module: {
       rules: [{
         test: /\.m?js$/,
-        exclude: /(node_modules | bower_components)/,
+        exclude: /(node_modules |bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env']
           }
         },
-      }],
+    }, 
+    //{
+    //   test: /\.css$/,
+    //   use: [
+    //     'style-loader',
+    //     {
+    //       loader: 'css-loader',
+    //       options: {
+    //         importLoaders: 1,
+    //         modules: true
+    //       }
+    //     },
+    //     {
+    //         loader: "postcss-loader",
+    //         options: { plugins: () => [postcssPresetEnv({ stage: 0 })] },
+    //     },
+    //   ],
+    // }
+      ]
     },
-    plugins: [ new MiniCssExtractPlugin() ],
+    // plugins: [ new MiniCssExtractPlugin() ],
     devtool: inProduction ? 'source-map' : 'inline-source-map',
     devServer: {
       contentBase: path.join(__dirname, 'public', 'dist'),
