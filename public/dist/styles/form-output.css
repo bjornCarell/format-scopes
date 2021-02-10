@@ -6,7 +6,7 @@
     border-radius: 5px;
     box-shadow: var(--box-shadow);
     margin: var(--xxl-space) var(--s-space);
-    max-width: 50rem;
+    max-width: 90rem;
     min-width: 35rem;
     padding: var(--m-space) var(--s-space);
     text-align: center;
