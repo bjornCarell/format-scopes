@@ -4,6 +4,7 @@
   "description": "manipulate JSON object data",
   "main": "index.js",
   "scripts": {
+    "build:prod": "webpack -p --env production",
     "start": "webpack-dev-server --open",
     "stop": "webpack-dev-server --close",
     "test": "jest"
