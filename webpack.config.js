@@ -1,35 +1,66 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = {
-    entry: ['./src/index.js'],
-    devtool: 'inline-source-map',
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
+if (process.env.NODE_ENV === 'test') {
+  require('dotenv').config({ path: '.env.test' })
+} else if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config({ path: '.env.development' })
+}
+
+module.exports = (env) => {
+  const inProduction = env === 'production'
+
+  return {
+    entry: './src/index.js',
     output: {
-        path: path.join(__dirname, 'public', 'dist'),
-        filename: 'bundle.js',
-    },
-    watch: true,
-    devServer: {
-        contentBase: './src',
-        compress: true,
-        port: 9000,
+      path: path.join(__dirname, 'public', 'dist'),
+      filename: 'bundle.js'
     },
     module: {
-        rules:[{
-                test: /\.js$/,
-                exclude: '/node_modules/',
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env'],
-                    },
-                },
-                test: /\.css$/,
-                use: {
-                    loader: 'css-loader',
-                    options: {
-                    sourceMap: true,
-                    }
-                },
-            }],
+      rules: [{
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        },
+
+      }, {
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            modules: true
+          }
+        }
+      ],
+      include: /\.module\.css$/
     },
+    {
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader'
+      ],
+      exclude: /\.module\.css$/
+    }
+      ]
+    },
+    plugins: [ new MiniCssExtractPlugin() ],
+    devtool: inProduction ? 'source-map' : 'inline-source-map',
+    devServer: {
+      contentBase: path.join(__dirname, 'public'),
+      historyApiFallback: true,
+      publicPath: '/dist'
+    },
+    mode: 'development'
+  }
 }
