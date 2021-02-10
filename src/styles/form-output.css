@@ -7,7 +7,9 @@
     box-shadow: var(--box-shadow);
     margin: var(--xxl-space) var(--s-space);
     min-width: 35rem;
+    max-width: 50rem;
     padding: var(--m-space) var(--s-space);
     text-align: center;
+    word-wrap: break-word;
     z-index: 999;
 }

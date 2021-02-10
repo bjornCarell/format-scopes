@@ -10,11 +10,10 @@
     <div id="app">
         <div class="form-content">
             <div class="paragraphs">
-                <p>This form will remove qoutes, spaces and line-breaks.
-                    One usecase is when adding scopes to Rundeck, copied from the API model.</p>
+                <p>This form will remove qoutes, spaces and line-breaks.</p>
             </div>
             <form id="form">
-            <label class="label">Paste JSON:</label>
+            <label class="label">Paste scopes:</label>
               <textarea rows="20" id="input" class="textarea"></textarea>
               <div class="form-actions">
                 <input id="submit" class="block button standard" type="button" value="Submit">
@@ -25,13 +24,6 @@
         <div class="output-content">
             <div id="output" class="">Output will display here</div>
              <button id="copy" class="button standard">Copy</button>
-        </div>
-        <div class="rundeck-link button clear">
-            <a 
-            href="https://back-office.oxford-production.tink.network" 
-            target="_blank">
-            Rundeck
-            </a>
         </div>
     </div>
     <script src="bundle.js"></script>

@@ -34,7 +34,7 @@
     height: 35rem;
     margin-bottom: var(--s-space);
     width: 90%;
-    padding: 2px 1rem;
+    padding: 1rem 2rem;
     transition: var(--transition);
 }
 
